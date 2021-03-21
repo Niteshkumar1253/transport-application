@@ -1,0 +1,35 @@
+
+server:
+  port: 9012
+
+jwt:
+  secret: secret
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${SQL_HOST:localhost}:${SQL_PORT:3306}/${SQL_DB:UserProfileApi_db}?createDatabaseIfNotExist=true
+    username: ${SQL_USERNAME:root}
+    password: ${SQL_PASSWORD:Sp$rks2005}
+  jpa:
+    hibernate:
+      ddl-auto: update
+  application:
+    name: userauthservice
+
+app:
+  jwttoken:
+    message: Login Successful
+  controller:
+    exception:
+      message1: Id and Password empty
+      message2: Id and Password not found
+      message3: Invalid Credentials
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER:localhost}:8761/eureka/
